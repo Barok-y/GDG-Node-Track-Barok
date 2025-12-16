@@ -1,0 +1,2 @@
+### sending a json data using post
+GET http://localhost:5000/students/1?department=CSE
