@@ -1,5 +1,5 @@
-import bookSchema from "../utils/validationSchema.js";
-import books from "../utils/books.js";
+import {bookSchema} from "../utils/validationSchema.js";
+import {books} from "../utils/books.js";
 
 // Get Requests
 export const getAllBooks = (req,res) => {
@@ -41,21 +41,22 @@ export const createBook = (req,res) => {
 
 //Delete Requests
 
-export const deleteById = (req,res) =>{
-    const id = req.params.id
-    const lastlength= books.length;
-    books=books.filter((book) => book.id != id )
-    if(lastlength == books.length){
-        res.status(400).json({
-            message : "Invalid ID"
-        });
-    }
-    else{
-    res.status(200).json({
-        message: "Successfully Deleted",
-        books : books
-    })
-    }
-}
+export const deleteById = (req, res) => {
+  const id = parseInt(req.params.id, 10); 
+  const index = books.findIndex(book => book.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({
+      message: "Book not found"
+    });
+  }
+
+  books.splice(index, 1); 
+
+  res.status(200).json({
+    message: "Successfully Deleted",
+    books: books 
+  });
+};
 
 
