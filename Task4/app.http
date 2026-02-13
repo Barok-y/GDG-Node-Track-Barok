@@ -1,76 +1,76 @@
 
-### 1. CREATE PRODUCT
-POST http://localhost:3000/products
-Content-Type: application/json
+# ### 1. CREATE PRODUCT
+# POST http://localhost:3000/products
+# Content-Type: application/json
 
-{
-    "name": "archon wireless keyboard",
-    "description": "Mechanical switches with tactile feedback.",
-    "price": 89.99,
-    "stock": 25,
-    "category": "Electronics"
-}
+# {
+#     "name": "archon wireless keyboard",
+#     "description": "Mechanical switches with tactile feedback.",
+#     "price": 89.99,
+#     "stock": 25,
+#     "category": "Electronics"
+# }
 
-### 2. GET ALL PRODUCTS (With Query Params)
-GET http://localhost:3000/products?category=Electronics&minPrice=10
+# ### 2. GET ALL PRODUCTS (With Query Params)
+# GET http://localhost:3000/products?category=Electronics&minPrice=10
 
-### 3. GET SINGLE PRODUCT BY ID
-# Replace ID with your actual product ID
-GET http://localhost:3000/products/698f9bf68000779a6d81c943
+# ### 3. GET SINGLE PRODUCT BY ID
+# # Replace ID with your actual product ID
+# GET http://localhost:3000/products/698f9bf68000779a6d81c943
 
-### 4. UPDATE PRODUCT
-# Used to change price or stock levels manually
-PUT http://localhost:3000/products/698f9bf68000779a6d81c943
-Content-Type: application/json
+# ### 4. UPDATE PRODUCT
+# # Used to change price or stock levels manually
+# PUT http://localhost:3000/products/698f9bf68000779a6d81c943
+# Content-Type: application/json
 
-{
-    "price": 95.00,
-    "stock": 30
-}
+# {
+#     "price": 95.00,
+#     "stock": 30
+# }
 
-### 5. DELETE PRODUCT
-DELETE http://localhost:3000/products/698f9bf68000779a6d81c943
-
-
-### 6. ADD TO CART
-POST http://localhost:3000/cart
-Content-Type: application/json
-
-{
-    "productId": "698f9c4f8000779a6d81c945",
-    "quantity": 2
-}
-
-### 7. UPDATE CART ITEM QUANTITY
-# Change quantity of a product already in the cart
-PUT http://localhost:3000/cart
-Content-Type: application/json
-
-{
-    "productId": "698f9c4f8000779a6d81c945",
-    "quantity": 5
-}
-
-### 8. DELETE SPECIFIC ITEM FROM CART
-# Remove one specific product from the cart array
-DELETE http://localhost:3000/cart/698f9c4f8000779a6d81c945
+# ### 5. DELETE PRODUCT
+# DELETE http://localhost:3000/products/698f9bf68000779a6d81c943
 
 
-### 9. CREATE ORDER (CHECKOUT)
-# Successful checkout reduces stock and clears cart
-POST http://localhost:3000/orders
-Content-Type: application/json
+# ### 6. ADD TO CART
+# POST http://localhost:3000/cart
+# Content-Type: application/json
 
-{
-    "customerInfo": "Barok, Bahir Dar, Ethiopia"
-}
+# {
+#     "productId": "698f9c4f8000779a6d81c945",
+#     "quantity": 2
+# }
 
-### 10. GET ALL ORDERS
-GET http://localhost:3000/orders
+# ### 7. UPDATE CART ITEM QUANTITY
+# # Change quantity of a product already in the cart
+# PUT http://localhost:3000/cart
+# Content-Type: application/json
 
-### 11. GET ORDER BY ID
-GET http://localhost:3000/orders/698fa515e843d71e8676403a
+# {
+#     "productId": "698f9c4f8000779a6d81c945",
+#     "quantity": 5
+# }
 
-### 12. DELETE ORDER (ADMIN CLEANUP)
-# If your project requires an order deletion endpoint
-DELETE http://localhost:3000/orders/698fa515e843d71e8676403a
+# ### 8. DELETE SPECIFIC ITEM FROM CART
+# # Remove one specific product from the cart array
+# DELETE http://localhost:3000/cart/698f9c4f8000779a6d81c945
+
+
+# ### 9. CREATE ORDER (CHECKOUT)
+# # Successful checkout reduces stock and clears cart
+# POST http://localhost:3000/orders
+# Content-Type: application/json
+
+# {
+#     "customerInfo": "Barok, Bahir Dar, Ethiopia"
+# }
+
+# ### 10. GET ALL ORDERS
+# GET http://localhost:3000/orders
+
+# ### 11. GET ORDER BY ID
+# GET http://localhost:3000/orders/698fa515e843d71e8676403a
+
+# ### 12. DELETE ORDER (ADMIN CLEANUP)
+# # If your project requires an order deletion endpoint
+# DELETE http://localhost:3000/orders/698fa515e843d71e8676403a
