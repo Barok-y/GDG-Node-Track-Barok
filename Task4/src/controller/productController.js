@@ -1,4 +1,4 @@
-import {Product} from "../models/products";
+import {Product} from "../models/products.js";
 
 export const getAllProducts = async (req, res , next) => {
     try{
@@ -6,8 +6,8 @@ export const getAllProducts = async (req, res , next) => {
             let query= {};
             if(category) query.category=category;
             if(minPrice || maxPrice){
-                if (minPrice) query.price.$gte = minPrice;
-                if (maxPrice) query.price.$lte = maxPrice;
+                if (minPrice) query.price.$gte = Number(minPrice);
+                if (maxPrice) query.price.$lte = Number(maxPrice);
             }
             const products =await Product.find(query);
             res.json(products);

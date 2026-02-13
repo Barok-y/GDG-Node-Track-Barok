@@ -1,5 +1,5 @@
-import {Cart} from "../models/cart" ;
-import {Product} from "../models/products";
+import {Cart} from "../models/cart.js";
+import {Product} from "../models/products.js";
 
 export const getCart = async (req, res, next) => {
     try{
@@ -41,7 +41,7 @@ export const addItem = async (req,res,next) => {
     }
 };
 
-exports.updateCartItems = async (req, res, next) => {
+export const updateCartItems = async (req, res, next) => {
   try {
     const { productId, quantity } = req.body;
 
@@ -77,7 +77,7 @@ exports.updateCartItems = async (req, res, next) => {
   }
 };
 
-export const removeCartItem = async (req, res, next) => {
+export const deleteCartItem= async (req, res, next) => {
     try{
         const cart = await Cart.findOne();
         if(cart){
